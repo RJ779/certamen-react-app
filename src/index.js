@@ -7,9 +7,11 @@ import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache, gql } from '@apo
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: 'https://panicky-jade-beanie.cyclic.app/',
+    uri: process.env.REACT_APP_BACKEND_URL || 'https://certamen-quizzer-graphql-server.vercel.app/graphql', 
   })
-})
+});
+
+
 
 const query = gql`
 query {
